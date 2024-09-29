@@ -23,43 +23,38 @@ body {
 header {
     background: #4CAF50;
     color: white;
+    position: relative;
+    z-index: 10;
 }
 
 .header-image {
     width: 100%;
-    height: auto; /* Maintain aspect ratio */
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+    margin-bottom: -10px;
 }
 
 nav {
     display: flex;
-    flex-direction: column; /* Stack menu items vertically */
-    align-items: flex-start; /* Align items to the start */
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: #4CAF50;
 }
 
 nav ul {
     list-style: none;
     padding: 0;
+    margin: 0;
     display: flex;
-    flex-direction: column; /* Stack items vertically */
-    width: 100%; /* Full width */
-    background: #4CAF50; /* Background for mobile menu */
-    position: absolute; /* Position absolutely */
-    top: 60px; /* Below the toggle button */
-    left: 0; /* Align to the left */
-    z-index: 10; /* Make sure it's on top */
-    display: none; /* Hide menu by default */
-}
-
-nav ul.active {
-    display: flex; /* Show when active */
 }
 
 nav ul li {
-    margin: 0; /* Reset margin for mobile */
+    margin: 0 10px;
 }
 
 nav ul li a {
-    padding: 10px 15px; /* Add padding for touch targets */
+    padding: 10px 15px;
     color: white;
     text-decoration: none;
     transition: color 0.3s;
@@ -71,13 +66,34 @@ nav ul li a:hover {
 
 .menu-toggle {
     display: none; /* Hidden by default */
-    background: none;
-    border: none;
-    color: white;
-    font-size: 30px; /* Size of the menu icon */
-    cursor: pointer;
-    position: relative; /* Keep it in the flow */
-    z-index: 20; /* Ensure it's above the menu */
+}
+
+/* Show menu toggle button for small screens */
+@media (max-width: 768px) {
+    nav ul {
+        display: none; /* Hide menu items by default */
+        flex-direction: column; /* Stack menu items vertically */
+        position: absolute; /* Positioning below the button */
+        top: 50px; /* Adjust according to button height */
+        left: 0;
+        right: 0;
+        background: #4CAF50; /* Match background */
+        z-index: 10; /* Keep above other content */
+    }
+
+    nav ul.active {
+        display: flex; /* Show menu items when active */
+    }
+
+    .menu-toggle {
+        display: block; /* Show toggle button */
+        background: none;
+        border: none;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 20; /* Ensure button is on top */
+    }
 }
 
 #hero {
@@ -85,26 +101,31 @@ nav ul li a:hover {
     text-align: center;
     color: white;
     overflow: hidden;
-    height: 70vh; /* Adjust this value for desired height */
+    height: 400px; /* Default height */
+    margin: 20px 0;
 }
 
 .hero-image {
-    width: 100%;
-    height: auto; /* Maintain aspect ratio */
+    width: calc(100% - 30px);
+    height: calc(100% - 30px);
+    margin: 15px auto;
+    position: relative;
 }
 
 .hero-image img {
-    width: 100%;
-    height: auto;
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
     opacity: 0;
-    transition: opacity 1s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
 }
 
 .hero-image img.active {
-    opacity: 1;
+    opacity: 1; /* Show the active image */
 }
 
 .cta {
@@ -316,7 +337,14 @@ footer p {
         height: 100%;
     }
 
-    .menu-toggle {
-        display: block; /* Show toggle button on mobile */
+    #hero {
+        margin: 10px 0; /* Adjust margin for the hero section on mobile */
+        height: 300px; /* Adjust height for mobile */
+    }
+
+    .hero-image {
+        margin: 15px auto; /* Margin for images on mobile */
+        width: calc(100% - 30px); /* Full width minus margins */
+        height: calc(100% - 30px); /* Full height minus margins */
     }
 }

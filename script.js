@@ -7,8 +7,8 @@ function changeImage() {
     images[currentIndex].classList.add('active');
 }
 
-// Change image every 3 seconds
-setInterval(changeImage, 3000);
+// Change image every 5 seconds
+setInterval(changeImage, 5000);
 
 // Quotes array
 const quotes = [
