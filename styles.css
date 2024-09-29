@@ -1,0 +1,322 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    scroll-behavior: smooth;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    background: #4CAF50;
+    color: white;
+}
+
+.header-image {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+}
+
+nav {
+    display: flex;
+    flex-direction: column; /* Stack menu items vertically */
+    align-items: flex-start; /* Align items to the start */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    width: 100%; /* Full width */
+    background: #4CAF50; /* Background for mobile menu */
+    position: absolute; /* Position absolutely */
+    top: 60px; /* Below the toggle button */
+    left: 0; /* Align to the left */
+    z-index: 10; /* Make sure it's on top */
+    display: none; /* Hide menu by default */
+}
+
+nav ul.active {
+    display: flex; /* Show when active */
+}
+
+nav ul li {
+    margin: 0; /* Reset margin for mobile */
+}
+
+nav ul li a {
+    padding: 10px 15px; /* Add padding for touch targets */
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #f39c12;
+}
+
+.menu-toggle {
+    display: none; /* Hidden by default */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px; /* Size of the menu icon */
+    cursor: pointer;
+    position: relative; /* Keep it in the flow */
+    z-index: 20; /* Ensure it's above the menu */
+}
+
+#hero {
+    position: relative;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+    height: 70vh; /* Adjust this value for desired height */
+}
+
+.hero-image {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.hero-image img.active {
+    opacity: 1;
+}
+
+.cta {
+    display: inline-block;
+    background: #f39c12;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin-top: 20px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.cta:hover {
+    background: #e67e22;
+}
+
+section {
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: 20px auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #4CAF50;
+}
+
+.testimonial {
+    margin: 20px 0;
+    padding: 15px;
+    border-left: 4px solid #4CAF50;
+    background: #f9f9f9;
+}
+
+.fixed-card {
+    position: fixed;
+    top: 50%;
+    left: 20px; /* Change from right to left */
+    transform: translateY(-50%);
+    width: 100px; /* Adjusted for mobile */
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.fixed-card img {
+    width: 100%;
+    height: auto;
+}
+
+footer {
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto;
+}
+
+footer p {
+    margin: 0;
+}
+
+.social-float {
+    position: fixed;
+    bottom: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.whatsapp {
+    left: 20px; /* Change from right to left */
+    background-color: #25D366;
+}
+
+.instagram {
+    left: 90px; /* Adjust as needed */
+    background-color: #C13584;
+}
+
+.youtube {
+    left: 160px; /* Adjust as needed */
+    background-color: #FF0000;
+}
+
+.social-float img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+#daily-quotes {
+    background: #f9f9f9;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.2em;
+    color: #333;
+    border-bottom: 2px solid #4CAF50;
+}
+
+#daily-quotes blockquote {
+    margin: 0;
+    font-style: italic;
+}
+
+#what-we-offer .offer-content {
+    text-align: center; /* Center the image */
+}
+
+.offer-image {
+    max-width: 100%; /* Prevent overflow */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Optional: adds some styling */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional: adds some shadow */
+}
+
+.helpful-links {
+    position: fixed; /* Fixed position for larger screens */
+    top: 50%; /* Center vertically */
+    right: 20px; /* Distance from the right */
+    transform: translateY(-50%); /* Adjust to center */
+    background: #f9f9f9; /* Background color */
+    padding: 20px; /* Padding */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow */
+    z-index: 1000; /* Ensure it stays above other content */
+}
+
+.helpful-links ul {
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+}
+
+.helpful-links ul li {
+    margin: 5px 0; /* Space between list items */
+}
+
+.helpful-links ul li a {
+    color: #4CAF50; /* Link color */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s;
+}
+
+.helpful-links ul li a:hover {
+    color: #e67e22; /* Change color on hover */
+}
+
+.floating-message {
+    background: #f9f9f9; /* Background color */
+    padding: 15px; /* Padding */
+    text-align: center; /* Center text */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow */
+    position: relative; /* Position relative to the navbar */
+    margin: 10px 0; /* Margin above and below */
+}
+
+.floating-message a {
+    color: #4CAF50; /* Link color */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Bold text */
+}
+
+.floating-message a:hover {
+    color: #e67e22; /* Change color on hover */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .header-image {
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    section {
+        padding: 20px 10px;
+    }
+
+    .fixed-card {
+        width: 80px; /* Smaller size for mobile */
+    }
+
+    .helpful-links {
+        position: static; /* Change to static for mobile */
+        margin-top: 20px; /* Add space above */
+        transform: none; /* Remove centering */
+        width: 100%; /* Full width on mobile */
+        box-shadow: none; /* Remove shadow for mobile */
+        padding: 15px; /* Adjust padding for mobile */
+    }
+
+    .social-float {
+        width: 50px;
+        height: 50px;
+    }
+
+    .social-float img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .menu-toggle {
+        display: block; /* Show toggle button on mobile */
+    }
+}
